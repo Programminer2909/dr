@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>С Днём Рождения ✨</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --bg: #070714;
+            --bg2: #101027;
+
+            --white: #ffffff;
+            --text: rgba(255, 255, 255, .9);
+            --muted: rgba(255, 255, 255, .58);
+
+            --pink: #ff6ec7;
+            --purple: #9b7cff;
+            --blue: #63b3ff;
+            --gold: #ffd86b;
+
+            --glass: rgba(255, 255, 255, .075);
+            --glass-strong: rgba(255, 255, 255, .11);
+            --border: rgba(255, 255, 255, .14);
+
+            --shadow:
+                0 25px 80px rgba(0, 0, 0, .35),
+                inset 0 1px 0 rgba(255, 255, 255, .08);
+
+            --radius: 28px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: "Manrope", sans-serif;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(155, 124, 255, .16), transparent 35%),
+                radial-gradient(circle at 85% 15%, rgba(255, 110, 199, .13), transparent 32%),
+                radial-gradient(circle at 50% 90%, rgba(99, 179, 255, .08), transparent 35%),
+                var(--bg);
+
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -10;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .aurora {
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            border-radius: 50%;
+            filter: blur(110px);
+            opacity: .18;
+            animation: auroraMove 15s ease-in-out infinite alternate;
+        }
+
+        .aurora.one {
+            background: #8f5cff;
+            top: -250px;
+            left: -200px;
+        }
+
+        .aurora.two {
+            background: #ff4db8;
+            right: -250px;
+            top: 10%;
+            animation-delay: -4s;
+        }
+
+        .aurora.three {
+            background: #388dff;
+            bottom: -300px;
+            left: 35%;
+            animation-delay: -8s;
+        }
+
+        @keyframes auroraMove {
+            from {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+
+            to {
+                transform: translate3d(70px, -40px, 0) scale(1.15);
+            }
+        }
+
+        /* particles */
+
+        #particles {
+            position: fixed;
+            inset: 0;
+            z-index: -5;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+
+            background: rgba(255, 255, 255, .75);
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 10px rgba(255, 255, 255, .5),
+                0 0 20px rgba(155, 124, 255, .3);
+
+            animation:
+                particleFloat linear infinite,
+                particlePulse ease-in-out infinite alternate;
+        }
+
+        @keyframes particleFloat {
+            from {
+                transform: translateY(110vh);
+            }
+
+            to {
+                transform: translateY(-20vh);
+            }
+        }
+
+        @keyframes particlePulse {
+            from {
+                opacity: .2;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .topbar {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            width: min(1100px, calc(100% - 32px));
+
+            z-index: 100;
+
+            padding: 12px;
+
+            background: rgba(10, 10, 25, .55);
+
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+
+            border: 1px solid rgba(255, 255, 255, .12);
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, .3),
+                inset 0 1px rgba(255, 255, 255, .08);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .nav button {
+            border: 0;
+            background: transparent;
+
+            color: rgba(255, 255, 255, .6);
+
+            font: inherit;
+            font-size: 14px;
+            font-weight: 600;
+
+            padding: 11px 17px;
+
+            border-radius: 14px;
+
+            cursor: pointer;
+
+            transition:
+                background .35s ease,
+                color .35s ease,
+                transform .35s ease;
+        }
+
+        .nav button:hover {
+            color: white;
+            background: rgba(255, 255, 255, .07);
+            transform: translateY(-1px);
+        }
+
+        .nav button.active {
+            color: white;
+
+            background:
+                linear-gradient(135deg,
+                    rgba(255, 255, 255, .12),
+                    rgba(255, 255, 255, .04));
+
+            box-shadow:
+                inset 0 1px rgba(255, 255, 255, .12);
+        }
+
+        /* =========================
+           MAIN
+        ========================= */
+
+        main {
+            width: min(1100px, calc(100% - 32px));
+            margin: auto;
+        }
+
+        .page {
+            min-height: 100vh;
+
+            display: none;
+
+            padding:
+                150px 0 80px;
+
+            animation: pageAppear .8s cubic-bezier(.22, 1, .36, 1);
+        }
+
+        .page.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @keyframes pageAppear {
+            from {
+                opacity: 0;
+                transform: translateY(25px) scale(.985);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            text-align: center;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 9px 15px;
+
+            border-radius: 999px;
+
+            background: rgba(255, 255, 255, .06);
+
+            border: 1px solid rgba(255, 255, 255, .1);
+
+            color: rgba(255, 255, 255, .7);
+
+            font-size: 13px;
+
+            backdrop-filter: blur(15px);
+
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: clamp(50px, 8vw, 105px);
+
+            line-height: .98;
+
+            letter-spacing: -5px;
+
+            font-weight: 800;
+
+            background:
+                linear-gradient(120deg,
+                    #ffffff 5%,
+                    #d9ceff 35%,
+                    #ff9ad9 65%,
+                    #ffffff 100%);
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+
+            background-size: 200% auto;
+
+            animation: shine 7s linear infinite;
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        .hero p {
+            max-width: 680px;
+
+            margin: 30px auto 0;
+
+            font-size: 19px;
+            line-height: 1.8;
+
+            color: var(--muted);
+        }
+
+        /* =========================
+           GLASS CARD
+        ========================= */
+
+        .glass {
+            position: relative;
+
+            background:
+                linear-gradient(135deg,
+                    rgba(255, 255, 255, .105),
+                    rgba(255, 255, 255, .045));
+
+            backdrop-filter: blur(28px) saturate(130%);
+            -webkit-backdrop-filter: blur(28px) saturate(130%);
+
+            border: 1px solid var(--border);
+
+            border-radius: var(--radius);
+
+            box-shadow: var(--shadow);
+
+            overflow: hidden;
+        }
+
+        .glass::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(120deg,
+                    rgba(255, 255, 255, .12),
+                    transparent 30%);
+
+            pointer-events: none;
+        }
+
+        /* =========================
+           HERO ORB
+        ========================= */
+
+        .orb {
+            width: 180px;
+            height: 180px;
+
+            margin: 50px auto 0;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(circle at 35% 25%,
+                    #fff,
+                    #ffb0e6 15%,
+                    #a36cff 45%,
+                    #5d4df3 70%,
+                    transparent 72%);
+
+            filter: blur(.5px);
+
+            box-shadow:
+                0 0 40px rgba(255, 110, 199, .45),
+                0 0 100px rgba(155, 124, 255, .25);
+
+            animation: orbFloat 5s ease-in-out infinite;
+        }
+
+        @keyframes orbFloat {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-12px) scale(1.04);
+            }
+        }
+
+        /* =========================
+           CONTENT
+        ========================= */
+
+        .section-title {
+            text-align: center;
+            font-size: clamp(38px, 6vw, 62px);
+            letter-spacing: -3px;
+            margin-bottom: 20px;
+        }
+
+        .section-description {
+            color: var(--muted);
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 45px;
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        .message-card {
+            padding: 55px;
+
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+        .message-card .emoji {
+            font-size: 45px;
+            margin-bottom: 25px;
+        }
+
+        .message-card p {
+            color: rgba(255, 255, 255, .82);
+
+            font-size: 20px;
+            line-height: 2;
+
+            position: relative;
+            z-index: 1;
+        }
+
+        .signature {
+            margin-top: 35px;
+
+            font-size: 15px;
+
+            color: rgba(255, 255, 255, .45);
+        }
+
+        /* =========================
+           WISHES
+        ========================= */
+
+        .wishes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .wish {
+            padding: 35px;
+
+            transition:
+                transform .45s cubic-bezier(.22, 1, .36, 1),
+                border-color .45s ease,
+                background .45s ease;
+        }
+
+        .wish:hover {
+            transform: translateY(-8px);
+
+            background:
+                linear-gradient(135deg,
+                    rgba(255, 255, 255, .13),
+                    rgba(255, 255, 255, .06));
+
+            border-color: rgba(255, 255, 255, .2);
+        }
+
+        .wish-icon {
+            width: 58px;
+            height: 58px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 18px;
+
+            background: rgba(255, 255, 255, .08);
+
+            font-size: 25px;
+
+            margin-bottom: 22px;
+        }
+
+        .wish h3 {
+            font-size: 23px;
+            margin-bottom: 12px;
+        }
+
+        .wish p {
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        /* =========================
+           SPECIAL PAGE
+        ========================= */
+
+        .special {
+            text-align: center;
+            padding: 70px 40px;
+        }
+
+        .special .big-number {
+            font-size: clamp(90px, 15vw, 170px);
+
+            font-weight: 800;
+
+            line-height: .8;
+
+            background:
+                linear-gradient(135deg,
+                    #fff,
+                    #ff9dd8,
+                    #9b7cff);
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+        }
+
+        .special h2 {
+            font-size: 34px;
+            margin-top: 25px;
+        }
+
+        .special p {
+            color: var(--muted);
+
+            max-width: 620px;
+
+            margin: 20px auto 0;
+
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           FINAL PAGE
+        ========================= */
+
+        .final {
+            text-align: center;
+        }
+
+        .final h2 {
+            font-size: clamp(48px, 8vw, 90px);
+
+            letter-spacing: -4px;
+
+            margin-bottom: 25px;
+        }
+
+        .final p {
+            max-width: 700px;
+
+            margin: auto;
+
+            color: var(--muted);
+
+            font-size: 19px;
+            line-height: 1.9;
+        }
+
+        .heart {
+            font-size: 80px;
+            margin-top: 40px;
+
+            animation: heartbeat 1.8s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            15% {
+                transform: scale(1.15);
+            }
+
+            30% {
+                transform: scale(1);
+            }
+
+            45% {
+                transform: scale(1.08);
+            }
+        }
+
+        /* =========================
+           BUTTON
+        ========================= */
+
+        .next-button {
+            display: block;
+
+            margin: 45px auto 0;
+
+            padding: 15px 25px;
+
+            border-radius: 15px;
+
+            border: 1px solid rgba(255, 255, 255, .13);
+
+            background:
+                linear-gradient(135deg,
+                    rgba(255, 255, 255, .13),
+                    rgba(255, 255, 255, .05));
+
+            color: white;
+
+            font: inherit;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            backdrop-filter: blur(20px);
+
+            transition:
+                transform .3s ease,
+                background .3s ease,
+                box-shadow .3s ease;
+        }
+
+        .next-button:hover {
+            transform: translateY(-3px);
+
+            background:
+                linear-gradient(135deg,
+                    rgba(255, 255, 255, .18),
+                    rgba(255, 255, 255, .08));
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, .25);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding:
+                30px 20px 45px;
+
+            color: rgba(255, 255, 255, .35);
+
+            font-size: 13px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .topbar {
+                top: 10px;
+            }
+
+            .nav button {
+                padding: 9px 11px;
+                font-size: 12px;
+            }
+
+            .page {
+                padding-top: 125px;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .message-card {
+                padding: 30px;
+            }
+
+            .message-card p {
+                font-size: 17px;
+                line-height: 1.8;
+            }
+
+            .wishes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .wish {
+                padding: 27px;
+            }
+
+            .special {
+                padding: 45px 25px;
+            }
+
+            .special h2 {
+                font-size: 27px;
+            }
+
+            .special p {
+                font-size: 16px;
+            }
+
+            .final h2 {
+                letter-spacing: -2px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+     BACKGROUND
+========================= -->
+
+    <div class="background">
+        <div class="aurora one"></div>
+        <div class="aurora two"></div>
+        <div class="aurora three"></div>
+    </div>
+
+    <div id="particles"></div>
+
+
+    <!-- =========================
+     NAVIGATION
+========================= -->
+
+    <header class="topbar">
+
+        <nav class="nav">
+
+            <button class="active" data-page="home">
+                ✨ Главная
+            </button>
+
+            <button data-page="message">
+                💌 Поздравление
+            </button>
+
+            <button data-page="wishes">
+                🌙 Пожелания
+            </button>
+
+            <button data-page="special">
+                ✨ Особенный день
+            </button>
+
+            <button data-page="final">
+                ❤️ От сердца
+            </button>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- =========================
+         PAGE 1
+    ========================= -->
+
+        <section id="home" class="page active">
+
+            <div class="hero">
+
+                <div class="hero-badge">
+                    ✨ Сегодня особенный день
+                </div>
+
+                <h1>
+                    С Днём<br>
+                    Рождения!
+                </h1>
+
+                <p>
+                    Сегодняшний день создан для улыбок,
+                    тёплых слов, счастливых моментов
+                    и воспоминаний, которые захочется
+                    сохранить навсегда.
+                </p>
+
+                <div class="orb"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+         PAGE 2
+    ========================= -->
+
+        <section id="message" class="page">
+
+            <h2 class="section-title">
+                Немного важных слов
+            </h2>
+
+            <p class="section-description">
+                Иногда обычных слов недостаточно,
+                чтобы передать всё, что хочется пожелать.
+            </p>
+
+            <div class="glass message-card">
+
+                <div class="emoji">
+                    💌
+                </div>
+
+                <p>
+                    Пусть в твоей жизни будет как можно
+                    больше моментов, когда хочется
+                    остановиться и подумать:
+                    «Вот сейчас я действительно счастлива».
+
+                    <br><br>
+
+                    Пусть рядом будут люди, с которыми
+                    можно смеяться до слёз, говорить обо всём
+                    на свете и просто молчать, не чувствуя
+                    никакой неловкости.
+
+                    <br><br>
+
+                    Желаю тебе не бояться больших мечтаний,
+                    не сомневаться в себе и всегда находить
+                    силы идти дальше, даже когда путь кажется
+                    сложным.
+
+                    <br><br>
+
+                    И самое главное — оставайся собой.
+                    Именно такой человек, как ты,
+                    делает этот мир чуточку интереснее.
+                </p>
+
+                <div class="signature">
+                    С самыми тёплыми пожеланиями ✨
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+         PAGE 3
+    ========================= -->
+
+        <section id="wishes" class="page">
+
+            <h2 class="section-title">
+                Я желаю тебе...
+            </h2>
+
+            <p class="section-description">
+                Не просто стандартных пожеланий,
+                а вещей, которые действительно делают
+                жизнь счастливее.
+            </p>
+
+
+            <div class="wishes-grid">
+
+                <div class="glass wish">
+
+                    <div class="wish-icon">
+                        🌟
+                    </div>
+
+                    <h3>
+                        Мечтать масштабно
+                    </h3>
+
+                    <p>
+                        Пусть у тебя всегда будут мечты,
+                        ради которых хочется просыпаться
+                        утром и двигаться вперёд.
+                    </p>
+
+                </div>
+
+
+                <div class="glass wish">
+
+                    <div class="wish-icon">
+                        🫶
+                    </div>
+
+                    <h3>
+                        Любимых людей рядом
+                    </h3>
+
+                    <p>
+                        Пусть рядом будут те,
+                        кто поддержит, поймёт,
+                        рассмешит и никогда не даст
+                        почувствовать себя одиноким.
+                    </p>
+
+                </div>
+
+
+                <div class="glass wish">
+
+                    <div class="wish-icon">
+                        🚀
+                    </div>
+
+                    <h3>
+                        Новых возможностей
+                    </h3>
+
+                    <p>
+                        Пусть каждый новый год жизни
+                        открывает двери туда,
+                        где тебя ждут удивительные
+                        возможности.
+                    </p>
+
+                </div>
+
+
+                <div class="glass wish">
+
+                    <div class="wish-icon">
+                        ☀️
+                    </div>
+
+                    <h3>
+                        Больше счастливых дней
+                    </h3>
+
+                    <p>
+                        Пусть даже самый обычный день
+                        иногда превращается в тот самый
+                        день, который хочется запомнить.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+         PAGE 4
+    ========================= -->
+
+        <section id="special" class="page">
+
+            <div class="glass special">
+
+                <div class="big-number">
+                    ∞
+                </div>
+
+                <h2>
+                    Пусть счастья будет бесконечно много
+                </h2>
+
+                <p>
+                    Пусть хороших воспоминаний становится
+                    всё больше, а плохие моменты остаются
+                    лишь маленькими эпизодами на фоне
+                    огромной и красивой истории твоей жизни.
+
+                    <br><br>
+
+                    Пусть каждый следующий год будет
+                    не просто ещё одним годом,
+                    а новой невероятной главой.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+         PAGE 5
+    ========================= -->
+
+        <section id="final" class="page">
+
+            <div class="final">
+
+                <div class="hero-badge">
+                    ❤️ От всего сердца
+                </div>
+
+                <h2>
+                    Будь счастлива.
+                </h2>
+
+                <p>
+                    Не иногда.
+                    Не тогда, когда всё идеально.
+
+                    <br><br>
+
+                    А просто каждый день находи хотя бы
+                    одну маленькую причину улыбнуться.
+
+                    <br><br>
+
+                    Потому что ты этого заслуживаешь.
+
+                </p>
+
+                <div class="heart">
+                    ❤️
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        Сделано с теплом, хорошим настроением и огромным количеством любви ✨
+    </footer>
+
+
+    <script>
+
+        /* =========================
+           PARTICLES
+        ========================= */
+
+        const particlesContainer =
+            document.getElementById("particles");
+
+        const PARTICLES = 70;
+
+        for (let i = 0; i < PARTICLES; i++) {
+
+            const particle =
+                document.createElement("div");
+
+            particle.className = "particle";
+
+            particle.style.left =
+                Math.random() * 100 + "vw";
+
+            particle.style.animationDuration =
+                (Math.random() * 12 + 8) + "s";
+
+            particle.style.animationDelay =
+                (-Math.random() * 15) + "s";
+
+            particle.style.width =
+                particle.style.height =
+                (Math.random() * 3 + 1) + "px";
+
+            particlesContainer.appendChild(particle);
+        }
+
+
+        /* =========================
+           PAGE NAVIGATION
+        ========================= */
+
+        const navButtons =
+            document.querySelectorAll(".nav button");
+
+        const pages =
+            document.querySelectorAll(".page");
+
+
+        function showPage(pageId) {
+
+            pages.forEach(page => {
+
+                page.classList.remove("active");
+
+            });
+
+
+            const target =
+                document.getElementById(pageId);
+
+            if (target) {
+
+                target.classList.add("active");
+
+            }
+
+
+            navButtons.forEach(button => {
+
+                button.classList.toggle(
+                    "active",
+                    button.dataset.page === pageId
+                );
+
+            });
+
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        navButtons.forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    showPage(button.dataset.page);
+
+                }
+            );
+
+        });
+
+
+        /* =========================
+           KEYBOARD NAVIGATION
+        ========================= */
+
+        const order = [
+            "home",
+            "message",
+            "wishes",
+            "special",
+            "final"
+        ];
+
+        let currentPage = 0;
+
+
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (event.key === "ArrowRight") {
+
+                    currentPage =
+                        Math.min(
+                            currentPage + 1,
+                            order.length - 1
+                        );
+
+                    showPage(order[currentPage]);
+
+                }
+
+
+                if (event.key === "ArrowLeft") {
+
+                    currentPage =
+                        Math.max(
+                            currentPage - 1,
+                            0
+                        );
+
+                    showPage(order[currentPage]);
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           MOUSE PARALLAX
+        ========================= */
+
+        document.addEventListener(
+            "mousemove",
+            event => {
+
+                const x =
+                    (event.clientX / window.innerWidth - .5);
+
+                const y =
+                    (event.clientY / window.innerHeight - .5);
+
+
+                document.querySelectorAll(".aurora")
+                    .forEach((aurora, index) => {
+
+                        const strength =
+                            (index + 1) * 8;
+
+                        aurora.style.transform =
+                            `translate(
+                            ${x * strength}px,
+                            ${y * strength}px
+                        )`;
+
+                    });
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>
+```
